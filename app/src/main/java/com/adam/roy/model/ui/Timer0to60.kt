@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -26,8 +27,11 @@ class Timer0to60 : AppCompatActivity() {
 
     //*TODO - have to make it so the user can enter the desired parameters/targets
     // The defaults for the input for the timer object.
+    // Also make everything in the thread its own function
+    @Volatile
+    private var threadRunning = true
 
-    private var speedTarget = 30.0
+    private var speedTarget = 60.0
     private var speedThreshold = 1.0
 
     private lateinit var stateText: TextView
@@ -35,6 +39,7 @@ class Timer0to60 : AppCompatActivity() {
     private lateinit var resultText: TextView
     private lateinit var elapsedTimeText: TextView
     private lateinit var resetButton: Button
+    private lateinit var setSpeedTargetText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +51,9 @@ class Timer0to60 : AppCompatActivity() {
         resultText = findViewById(R.id.resultText)
         resetButton = findViewById(R.id.resetButton)
         elapsedTimeText = findViewById(R.id.elapsedTimeText)
+        setSpeedTargetText = findViewById(R.id.setSpeedTargetText)
 
-        val timer = AccelerationTimer(speedTarget, speedThreshold)
+        var timer = AccelerationTimer(speedTarget, speedThreshold)
 
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -65,6 +71,22 @@ class Timer0to60 : AppCompatActivity() {
             resultText.text = ""
             speedText.text = ""
             elapsedTimeText.text = ""
+
+            //TODO Also encapsulate this
+            setSpeedTargetText.visibility = View.VISIBLE
+
+            var speedTargetString = ""
+            try
+            {
+                speedTargetString = setSpeedTargetText.text.toString()
+                speedTarget = speedTargetString.toDouble()
+            }
+            catch (e: Exception)
+            {
+                Toast.makeText(this@Timer0to60, "Target was not set. Setting to 60mph default", Toast.LENGTH_SHORT).show()
+            }
+
+            timer = AccelerationTimer(speedTarget, speedThreshold)
         }
 
         stateText.text = timer.getCurrentState().toString()
@@ -72,7 +94,7 @@ class Timer0to60 : AppCompatActivity() {
 
         thread {
 
-            while (timer.getCurrentState() != State.FINISHED) {
+            while (threadRunning) {
                 val rawTelemetry = UDPController.receive()
                 val parsedData = DataTools.parseBinaryData(rawTelemetry)
 
@@ -87,6 +109,7 @@ class Timer0to60 : AppCompatActivity() {
                     val startTime = parsedData!!.time
                     if (timer.getCurrentState() == State.RUNNING)
                     {
+                        setSpeedTargetText.visibility = View.GONE
                         val speedMph = parsedData!!.speed * 1.15078
                         speedText.text = String.format("%.2f", speedMph) + " MPH"
 

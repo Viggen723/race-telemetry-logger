@@ -12,4 +12,5 @@
     <string name="close">close</string>
     <string name="g_force_meter">G-Force Meter</string>
     <string name="_0_60_timer">0-60 Timer</string>
+    <string name="enter_speed_target">Enter speed target:</string>
 </resources>

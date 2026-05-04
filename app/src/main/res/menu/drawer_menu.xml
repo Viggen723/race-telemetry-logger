@@ -3,10 +3,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/navDrawerTimer"
-            android:title="@string/_0_60_timer"/>
+            android:title="@string/_0_60_timer"
+            android:icon="@drawable/timer_logo"/>
         <item
             android:id="@+id/navDrawerGforce"
-            android:title="@string/g_force_meter"/>
+            android:title="@string/g_force_meter"
+            android:icon="@drawable/gforce_logo"/>
         <item
             android:id="@+id/navDrawerSettings"
             android:title="@string/settings"

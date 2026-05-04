@@ -17,6 +17,7 @@ import com.adam.roy.model.ui.GforceDash
 import com.adam.roy.model.ui.Timer0to60
 import com.adam.roy.utils.UDPController
 import com.google.android.material.navigation.NavigationView
+// TODO Change the activities such as settings to fragments since it is far too slow
 
 class MainActivity : AppCompatActivity() {
     private lateinit var longitudeText: TextView
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     if (parsedData != null) {
                         longitudeText.text = "Long: %.6f degrees".format(parsedData.longitude)
                         latitudeText.text = "Lat: %.6f degrees".format(parsedData.latitude)
-                        speedText.text = "%.2f knots".format(parsedData.speed)
+                        speedText.text = "%.2f mph".format(parsedData.speed * 1.15078)
                         elapsedTimeText.text = "${parsedData.time} ms"
                     }
                 }
