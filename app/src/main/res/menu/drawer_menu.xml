@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navDrawerTimer"
+            android:title="@string/_0_60_timer"/>
+        <item
+            android:id="@+id/navDrawerGforce"
+            android:title="@string/g_force_meter"/>
+        <item
+            android:id="@+id/navDrawerSettings"
+            android:title="@string/settings"
+            android:icon="@drawable/settings_cog"/>
+    </group>
+</menu>
