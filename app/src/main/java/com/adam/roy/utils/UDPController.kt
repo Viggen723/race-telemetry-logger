@@ -2,23 +2,32 @@ package com.adam.roy.utils
 
 import java.net.DatagramPacket
 import java.net.DatagramSocket
-import java.net.InetAddress
 
 object UDPController {
+    private const val PORT = 4120
+    private var socket: DatagramSocket? = null
 
-    var ip = InetAddress.getByName("192.168.4.2")
-    var port = 4120
-
-    fun receive() : ByteArray {
-
-        val socket = DatagramSocket(port)
-
+    fun receive(): ByteArray {
         val buffer = ByteArray(1024)
         val packet = DatagramPacket(buffer, buffer.size)
 
-        socket.receive(packet)
-        socket.close()
+        try {
+            if (socket == null || socket!!.isClosed) {
+                socket = DatagramSocket(PORT)
+            }
 
-        return buffer
+            socket?.receive(packet)
+            return buffer
+
+        } catch (e: Exception) {
+            return ByteArray(0)
+        }
+    }
+
+    fun closeSocket() {
+        try {
+            socket?.close()
+        } catch (e: Exception) {
+        }
     }
 }

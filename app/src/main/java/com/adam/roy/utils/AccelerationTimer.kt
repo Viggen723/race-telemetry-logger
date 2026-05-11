@@ -3,7 +3,7 @@ package com.adam.roy.utils
 import java.util.Objects.toString
 import com.adam.roy.data.State
 
-class AccelerationTimer(private val targetSpeed: Double, private val startThreshold: Double)
+class AccelerationTimer(private var targetSpeed: Double, private val startThreshold: Double)
 {
     private var currentStatus = State.WAITING
 
@@ -72,6 +72,11 @@ class AccelerationTimer(private val targetSpeed: Double, private val startThresh
         startTime = 0
         lastTime = 0
         lastSpeed = 0.0
+    }
+
+    fun setTarget(newTarget: Double)
+    {
+        targetSpeed = newTarget
     }
 
     fun getCurrentState() : State
