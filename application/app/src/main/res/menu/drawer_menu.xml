@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navDrawerTimer"
+            android:title="@string/_0_60_timer"
+            android:icon="@drawable/timer_logo"/>
+        <item
+            android:id="@+id/navDrawerGforce"
+            android:title="@string/g_force_meter"
+            android:icon="@drawable/gforce_logo"/>
+        <item
+            android:id="@+id/navDrawerSaveRun"
+            android:title="@string/save_run"
+            android:icon="@drawable/outline_clock_arrow_down_24"/>
+        <item
+            android:id="@+id/navDrawerSettings"
+            android:title="@string/settings"
+            android:icon="@drawable/settings_cog"/>
+    </group>
+</menu>
