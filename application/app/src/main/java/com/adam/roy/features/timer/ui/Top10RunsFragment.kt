@@ -1,4 +1,4 @@
-package com.adam.roy.model.timer.ui
+package com.adam.roy.features.timer.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adam.roy.R
 import com.adam.roy.data.localDatabase.AppDatabase
-import com.adam.roy.model.timer.viewModel.RunsViewModel
+import com.adam.roy.features.timer.viewModel.RunsViewModel
 import kotlinx.coroutines.launch
 
 class Top10RunsFragment : Fragment() {

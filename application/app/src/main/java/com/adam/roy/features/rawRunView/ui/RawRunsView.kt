@@ -1,4 +1,4 @@
-package com.adam.roy.model.rawRunView.ui
+package com.adam.roy.features.rawRunView.ui
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.adam.roy.MainActivity
 import com.adam.roy.databinding.ActivityRawRunsViewBinding
-import com.adam.roy.model.rawRunView.viewModel.RawRunViewModel
+import com.adam.roy.features.rawRunView.viewModel.RawRunViewModel
 import com.adam.roy.utils.UDPController
 import java.io.BufferedWriter
 import java.io.OutputStreamWriter

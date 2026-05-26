@@ -1,4 +1,4 @@
-package com.adam.roy.model.timer.viewModel
+package com.adam.roy.features.timer.viewModel
 
 import androidx.lifecycle.*
 import com.adam.roy.data.localDatabase.dao.AccelerationRunDao

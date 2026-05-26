@@ -1,4 +1,4 @@
-package com.adam.roy.model.gForceMeter.viewModel
+package com.adam.roy.features.gForceMeter.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

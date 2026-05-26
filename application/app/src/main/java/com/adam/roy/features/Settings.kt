@@ -1,4 +1,4 @@
-package com.adam.roy.model
+package com.adam.roy.features
 
 import android.content.Intent
 import android.os.Bundle

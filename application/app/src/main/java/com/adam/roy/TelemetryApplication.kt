@@ -3,7 +3,7 @@ package com.adam.roy
 import android.app.Application
 import com.adam.roy.data.localDatabase.AppDatabase
 import com.adam.roy.data.repository.RawRunRepository
-import com.adam.roy.model.timer.data.TimerRepository
+import com.adam.roy.features.timer.data.TimerRepository
 
 class TelemetryApplication: Application()
 {

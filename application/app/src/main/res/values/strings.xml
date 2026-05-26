@@ -17,4 +17,7 @@
     <string name="save_as_csv">Save as CSV</string>
     <string name="start_recording">Start Recording</string>
     <string name="save_run">Save Run</string>
+    <string name="view_sessions">View Sessions</string>
+    <string name="upload_session">Upload session</string>
+    <string name="load_session_from_database">Load Session from database</string>
 </resources>

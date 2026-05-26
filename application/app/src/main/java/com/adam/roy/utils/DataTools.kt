@@ -1,6 +1,6 @@
 package com.adam.roy.utils
 
-import com.adam.roy.model.Telemetry
+import com.adam.roy.features.Telemetry
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 

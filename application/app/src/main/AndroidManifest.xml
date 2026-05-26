@@ -14,19 +14,27 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.RaceTelemetryLogger">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${GOOGLE_MAPS_API_KEY}" />
+
         <activity
-            android:name=".model.rawRunView.ui.RawRunsView"
+            android:name=".features.mappedSession.ui.MappedSessionView"
             android:exported="false" />
         <activity
-            android:name=".model.Settings"
+            android:name=".features.rawRunView.ui.RawRunsView"
+            android:exported="false" />
+        <activity
+            android:name=".features.Settings"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".model.gForceMeter.ui.GforceDash"
+            android:name=".features.gForceMeter.ui.GforceDash"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".model.timer.ui.Timer0to60"
+            android:name=".features.timer.ui.Timer0to60"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

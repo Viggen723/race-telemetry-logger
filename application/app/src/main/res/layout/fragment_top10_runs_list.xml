@@ -25,7 +25,7 @@
         android:layout_marginTop="20dp"
         android:layout_gravity=""
         app:layoutManager="LinearLayoutManager"
-        tools:context=".model.timer.ui.Top10RunsFragment"
+        tools:context=".features.timer.ui.Top10RunsFragment"
         tools:listitem="@layout/fragment_top10_runs"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

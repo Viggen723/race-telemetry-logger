@@ -1,4 +1,4 @@
-package com.adam.roy.model.gForceMeter.ui
+package com.adam.roy.features.gForceMeter.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.adam.roy.MainActivity
-import com.adam.roy.R
 import com.adam.roy.databinding.ActivityGforceDashBinding
-import com.adam.roy.model.gForceMeter.viewModel.GForceDashViewModel
+import com.adam.roy.features.gForceMeter.viewModel.GForceDashViewModel
 import com.adam.roy.utils.UDPController
 
 class GforceDash : AppCompatActivity() {

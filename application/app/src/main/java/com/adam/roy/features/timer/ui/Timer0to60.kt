@@ -1,4 +1,4 @@
-package com.adam.roy.model.timer.ui
+package com.adam.roy.features.timer.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.adam.roy.MainActivity
 import com.adam.roy.R
 import com.adam.roy.data.State
 import com.adam.roy.databinding.ActivityTimer0to60Binding
-import com.adam.roy.model.timer.viewModel.TimerViewModel
+import com.adam.roy.features.timer.viewModel.TimerViewModel
 
 
 class Timer0to60 : AppCompatActivity() {

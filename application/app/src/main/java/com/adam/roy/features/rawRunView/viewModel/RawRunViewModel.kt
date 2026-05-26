@@ -1,4 +1,4 @@
-package com.adam.roy.model.rawRunView.viewModel
+package com.adam.roy.features.rawRunView.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
@@ -76,7 +76,8 @@ class RawRunViewModel(application: Application) : AndroidViewModel(application)
 
                 currentRunList.clear()
             }
-            catch (e: Exception) {
+            catch (e: Exception)
+            {
 
             }
         }

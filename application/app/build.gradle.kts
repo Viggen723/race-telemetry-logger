@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp") version "2.3.4"
+
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -75,5 +77,8 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version") // Required for Coroutines
     ksp("androidx.room:room-compiler:$room_version")
 
-    implementation("androidx.navigation:navigation-compose:2.7.6")
+    // Needed for the xml views
+    implementation("com.google.android.gms:play-services-maps:19.0.0")
+    // Needed for features like clustering and heatmaps
+    implementation("com.google.maps.android:android-maps-utils:3.8.2")
 }

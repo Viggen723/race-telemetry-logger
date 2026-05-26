@@ -1,4 +1,4 @@
-package com.adam.roy.model
+package com.adam.roy.features
 
 data class Telemetry(
     val timeStamp: Int,

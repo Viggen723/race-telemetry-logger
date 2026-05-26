@@ -8,14 +8,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import com.adam.roy.model.Settings
+import com.adam.roy.features.Settings
 import kotlin.concurrent.thread
 import com.adam.roy.utils.DataTools
-import com.adam.roy.model.gForceMeter.ui.GforceDash
-import com.adam.roy.model.rawRunView.ui.RawRunsView
-import com.adam.roy.model.timer.ui.Timer0to60
+import com.adam.roy.features.gForceMeter.ui.GforceDash
+import com.adam.roy.features.mappedSession.ui.MappedSessionView
+import com.adam.roy.features.rawRunView.ui.RawRunsView
+import com.adam.roy.features.timer.ui.Timer0to60
 import com.adam.roy.utils.UDPController
 import com.google.android.material.navigation.NavigationView
+import kotlin.jvm.java
+
 // TODO Change the activities such as settings to fragments since it is far too slow
 
 class MainActivity : AppCompatActivity() {
@@ -43,10 +46,10 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val toggle =
-            ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
-            drawerLayout.addDrawerListener(toggle)
-            toggle.syncState()
+        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
+
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -69,6 +72,11 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, RawRunsView::class.java))
                     UDPController.closeSocket()
                     onDestroy()
+                }
+                R.id.navDrawerMapSessions -> {
+                    startActivity(Intent(this, MappedSessionView::class.java))
+                    UDPController.closeSocket()
+                    finish()
                 }
             }
             drawerLayout.closeDrawers()

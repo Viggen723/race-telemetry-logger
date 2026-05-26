@@ -1,4 +1,4 @@
-package com.adam.roy.model.timer.ui
+package com.adam.roy.features.timer.ui
 
 import android.os.Build
 import androidx.recyclerview.widget.RecyclerView

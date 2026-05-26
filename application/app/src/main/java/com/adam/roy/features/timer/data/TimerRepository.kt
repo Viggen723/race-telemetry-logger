@@ -1,4 +1,4 @@
-package com.adam.roy.model.timer.data
+package com.adam.roy.features.timer.data
 
 import com.adam.roy.data.localDatabase.dao.AccelerationRunDao
 import com.adam.roy.data.localDatabase.entities.AccelerationRunEntry

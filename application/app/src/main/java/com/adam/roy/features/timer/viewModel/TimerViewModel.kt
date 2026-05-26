@@ -1,4 +1,4 @@
-package com.adam.roy.model.timer.viewModel
+package com.adam.roy.features.timer.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.adam.roy.TelemetryApplication
 import com.adam.roy.data.State
 import com.adam.roy.data.localDatabase.entities.AccelerationRunEntry
-import com.adam.roy.model.Telemetry
+import com.adam.roy.features.Telemetry
 import com.adam.roy.utils.AccelerationTimer
 import com.adam.roy.utils.DataTools
 import com.adam.roy.utils.UDPController
