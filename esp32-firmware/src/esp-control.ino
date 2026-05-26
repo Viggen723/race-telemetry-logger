@@ -3,13 +3,11 @@
 # include "GPS_Manager.h"
 # include "Accelerometer_Manager.h"
 # include "Telemetry_Sender.h"
-# include "SD_Manager.h"
 
 TelemetryData currentRun;
 WiFiManager wifi = WiFiManager("RoyTelemetrySystems_Logger", "Testing123", "192.168.4.2", 4120);
 AccelerometerManager accel = AccelerometerManager();
 GPSManager gps = GPSManager();
-// SDManager sd = SDManager(46);
 TelemetrySender sender = TelemetrySender(gps, accel, wifi, currentRun);
 
 void setup(void)

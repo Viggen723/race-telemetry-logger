@@ -5,7 +5,6 @@
 # include "Accelerometer_Manager.h"
 # include "Telemetry_Data.h"
 # include "WiFi_Manager.h"
-# include "SD_Manager.h"
 
 class TelemetrySender {
 
@@ -23,8 +22,7 @@ class TelemetrySender {
         AccelerometerManager &_accel;
         WiFiManager &_wifi;
         TelemetryData &_data;
-        // SDManager &_sd;
-
+    
         int _lastSend;
     
 };

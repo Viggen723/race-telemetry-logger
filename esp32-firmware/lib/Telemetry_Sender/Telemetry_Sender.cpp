@@ -1,7 +1,5 @@
 # include "Telemetry_Sender.h"
 
-// SD HAS BEEN DISABLED DUE TO HARDWARE PROBLEMS, FIX
-
 TelemetrySender::TelemetrySender(GPSManager &gps, AccelerometerManager &accel,
      WiFiManager &wifi, TelemetryData &data) 
     : _gps(gps), _accel(accel), _wifi(wifi), _data(data) //_sd(sd)
@@ -20,11 +18,6 @@ void TelemetrySender::send()
     _gps.update(_data);
     _accel.update(_data);
     _wifi.sendTelemetry(_data);
-
-    //String row = String(_data.time) + "," + String(_data.speed, 2) + "," + String(_data.longitude, 6) + "," + String(_data.latitude, 6) + "," + String(_data.accelX, 3) 
-    // + "," + String(_data.accelY, 4) + "," + String(_data.accelZ, 3) + "\n";
-
-    // _sd.appendToCSV("/log.csv", row);
 
     // Update the last print
     _lastSend += SEND_INTERVAL; 
