@@ -24,12 +24,13 @@ class GforceDash : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[GForceDashViewModel::class.java]
 
-        viewModel.moveX.observe(this)
+        // ** X and Y are switched as the sensors reading for the X axis are forward in backwards in current config
+        viewModel.moveY.observe(this)
         {
             binding.ggCircle.translationX = it
         }
 
-        viewModel.moveY.observe(this)
+        viewModel.moveX.observe(this)
         {
             binding.ggCircle.translationY = it
         }

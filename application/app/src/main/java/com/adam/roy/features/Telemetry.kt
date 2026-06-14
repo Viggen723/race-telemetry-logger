@@ -7,5 +7,10 @@ data class Telemetry(
     val accelZ: Float,
     val latitude: Float,
     val longitude: Float,
-    val speed: Float
+    val speed: Float,
+    // The quaternion values
+    val qw: Float,
+    val qi: Float,
+    val qj: Float,
+    val qk: Float
 )

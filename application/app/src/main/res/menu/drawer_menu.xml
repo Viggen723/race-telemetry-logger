@@ -4,22 +4,22 @@
         <item
             android:id="@+id/navDrawerTimer"
             android:title="@string/_0_60_timer"
-            android:icon="@drawable/timer_logo"/>
+            android:icon="@drawable/ic_timer_logo"/>
         <item
             android:id="@+id/navDrawerGforce"
             android:title="@string/g_force_meter"
-            android:icon="@drawable/gforce_logo"/>
+            android:icon="@drawable/ic_gforce_mark"/>
         <item
             android:id="@+id/navDrawerSaveRun"
             android:title="@string/save_run"
-            android:icon="@drawable/outline_clock_arrow_down_24"/>
+            android:icon="@drawable/ic_stopwatch_arrow_down"/>
         <item
             android:id="@+id/navDrawerMapSessions"
             android:title="@string/view_sessions"
-            android:icon="@drawable/globe"/>
+            android:icon="@drawable/ic_globe_mark"/>
         <item
             android:id="@+id/navDrawerSettings"
             android:title="@string/settings"
-            android:icon="@drawable/settings_cog"/>
+            android:icon="@drawable/ic_settings_cog"/>
     </group>
 </menu>

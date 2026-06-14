@@ -51,8 +51,6 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
 
                 if (points.isNotEmpty()) {
                     try {
-                        // FIX: Separated Calendar initialization and .time call to
-                        // explicitly assign a valid java.util.Date object
                         val calendarInstance = Calendar.getInstance()
                         calendarInstance.set(Calendar.HOUR_OF_DAY, 0)
                         calendarInstance.set(Calendar.MINUTE, 0)
@@ -63,10 +61,9 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
 
                         val parentEntry = DateParentEntry(midnightTimestamp)
 
-                        // 2. Map parsed objects into formal Room database schema entities
                         val databaseEntities = points.map { uiPoint ->
                             TelemetryEntry(
-                                id = 0, // Auto-generated index primary key by Room
+                                id = 0, // Auto-generated id that Room uses
                                 dateId = midnightTimestamp,
                                 timeStamp = uiPoint.timeStamp,
                                 accelX = uiPoint.accelX,
@@ -78,7 +75,6 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
                             )
                         }
 
-                        // 3. Persist structural data securely into local storage tables
                         telemetryRepository.saveRecordedRun(parentEntry, databaseEntities)
 
                         withContext(Dispatchers.Main) {
@@ -118,7 +114,6 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
             selectFileLauncher.launch("*/*")
         }
 
-        // Calendar Date Picker integration block
         sessionLoadButton.setOnClickListener {
             val currentCalendar = Calendar.getInstance()
             val startYear = currentCalendar.get(Calendar.YEAR)
@@ -129,8 +124,7 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
                 this,
                 { _, selectedYear, selectedMonth, selectedDay ->
 
-                    // FIX: Changed block structure to ensure that targetCalendar.time
-                    // resolves and returns cleanly as a clean java.util.Date object type
+                    // Setting the time of the selected day to midnight
                     val targetCalendar = Calendar.getInstance()
                     targetCalendar.set(Calendar.YEAR, selectedYear)
                     targetCalendar.set(Calendar.MONTH, selectedMonth)
@@ -195,7 +189,8 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
                         val accelZ = cols.getOrNull(4)?.trim()?.toFloatOrNull() ?: 0f
                         val speed = cols.getOrNull(7)?.trim()?.toFloatOrNull() ?: 0f
 
-                        points.add(Telemetry(timeStamp, accelX, accelY, accelZ, lat, lng, speed))
+                        // TODO Change this accordingly!!!
+                        points.add(Telemetry(timeStamp, accelX, accelY, accelZ, lat, lng, speed, 0.0f, 0.0f, 0.0f, 0.0f))
                     }
                 }
             }
@@ -210,7 +205,7 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
 
             val groupedRuns: List<GroupRunTelemetryByDate> = telemetryRepository.getAllGroupedTelemetry(dateId)
 
-            // Flatten your grouped database objects into a single cohesive list
+            // Flat grouped database objects into a single cohesive list
             val allTelemetryEntries: List<TelemetryEntry> = groupedRuns.flatMap { group ->
                 group.telemetryList
             }
@@ -231,7 +226,12 @@ class MappedSessionView : AppCompatActivity(), OnMapReadyCallback {
                     accelZ = dbEntry.accelZ ?: 0f,
                     latitude = dbEntry.latitude ?: 0f,
                     longitude = dbEntry.longitude ?: 0f,
-                    speed = dbEntry.speed ?: 0f
+                    speed = dbEntry.speed ?: 0f,
+                    // TODO change the entry class!!
+                    qw = 0.0f,
+                    qi = 0.0f,
+                    qj = 0.0f,
+                    qk = 0.0f
                 )
             }
         } catch (e: Exception) {
